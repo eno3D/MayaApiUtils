@@ -73,6 +73,10 @@ namespace MayaApiUtils {
 
     MMatrix composeMatrix(const MVector &translate, const MVector &rotate, const MVector &scale, const MVector &shear,
                           MStatus *status = nullptr);
+
+    MEulerRotation rotateFromMatrixAsEuler(const MMatrix &matrix, MStatus *status = nullptr);
+
+    MQuaternion rotateFromMatrixAsQuaternion(const MMatrix &matrix, MStatus *status = nullptr);
 }
 
 #endif

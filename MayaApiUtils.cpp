@@ -1,272 +1,264 @@
 #include "MayaApiUtils.h"
 
 MObject MayaApiUtils::getParent(MObject obj, int i, MStatus *status) {
-    if (!obj.hasFn(MFn::kDagNode)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDagNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MObject();
     }
-    MFnDagNode fnDagNode(obj);
+
     MObject parent = fnDagNode.parent(i, status);
 
     return parent;
 }
 
 MObject MayaApiUtils::getChild(MObject obj, int i, MStatus *status) {
-    if (!obj.hasFn(MFn::kDagNode)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDagNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MObject();
     }
-    MFnDagNode fnDagNode(obj);
+
     MObject child = fnDagNode.child(i, status);
 
     return child;
 }
 
 MPlug MayaApiUtils::getTranslate(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("translate", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getTranslateX(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("translateX", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getTranslateY(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("translateY", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getTranslateZ(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("translateZ", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getRotate(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("rotate", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getRotateX(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("rotateX", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getRotateY(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("rotateY", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getRotateZ(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("rotateZ", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getScale(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("scale", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getScaleX(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("scaleX", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getScaleY(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("scaleY", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getScaleZ(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
-    MFnDependencyNode fnDepNode(obj);
+
     MPlug plug = fnDepNode.findPlug("scaleZ", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getMatrix(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("matrix", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getInverseMatrix(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("inverseMatrix", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getXformMatrix(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("xformMatrix", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getOffsetParentMatrix(MObject obj, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("offsetParentMatrix", false, status);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getWorldMatrix(MObject obj, int i, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("worldMatrix", false, status).elementByLogicalIndex(i);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getWorldInverseMatrix(MObject obj, int i, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("worldInverseMatrix", false, status).elementByLogicalIndex(i);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getParentMatrix(MObject obj, int i, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("parentMatrix", false, status).elementByLogicalIndex(i);
 
     return plug;
 }
 
 MPlug MayaApiUtils::getParentInverseMatrix(MObject obj, int i, MStatus *status) {
-    if (!obj.hasFn(MFn::kTransform)) {
-        *status = MStatus::kFailure;
+    MFnDagNode fnDepNode(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MPlug();
     }
 
-    MFnDependencyNode fnDepNode(obj);
     MPlug plug = fnDepNode.findPlug("parentInverseMatrix", false, status).elementByLogicalIndex(i);
 
     return plug;
@@ -274,7 +266,7 @@ MPlug MayaApiUtils::getParentInverseMatrix(MObject obj, int i, MStatus *status) 
 
 MVector MayaApiUtils::plugToVector(const MPlug &plug, MStatus *status) {
     if (!plug.isCompound() || plug.numChildren() != 3) {
-        *status = MStatus::kFailure;
+        *status = MStatus::kInvalidParameter;
 
         return MVector();
     }
@@ -299,7 +291,9 @@ MVector MayaApiUtils::rotateFromMatrix(const MMatrix &matrix, MStatus *status) {
     MEulerRotation rot = transMat.eulerRotation();
     MVector vec = rot.asVector();
 
-    *status = MStatus::kSuccess;
+    if (status != nullptr) {
+        *status = MStatus::kSuccess;
+    }
 
     return vec;
 }
@@ -335,16 +329,12 @@ MVector MayaApiUtils::shearFromMatrix(const MMatrix &matrix, MStatus *status) {
 MMatrix MayaApiUtils::plugToMatrix(const MPlug &plug, MStatus *status) {
     MObject obj = plug.asMObject();
 
-    if (!obj.hasFn(MFn::kMatrixData)) {
-        *status = MStatus::kFailure;
+    MFnMatrixData fnMatData(obj, status);
 
+    if (status != nullptr && *status != MStatus::kSuccess) {
         return MMatrix();
     }
-
-    MFnMatrixData fnMatData(obj);
     const MMatrix &mat = fnMatData.matrix();
-
-    *status = MStatus::kSuccess;
 
     return mat;
 }
@@ -369,4 +359,28 @@ MMatrix MayaApiUtils::composeMatrix(const MVector &translate, const MVector &rot
     MMatrix mat = transMat.asMatrix();
 
     return mat;
+}
+
+MEulerRotation MayaApiUtils::rotateFromMatrixAsEuler(const MMatrix &matrix, MStatus *status) {
+    MTransformationMatrix transMat(matrix);
+
+    MEulerRotation rot = transMat.eulerRotation();
+
+    if (status != nullptr) {
+        *status = MStatus::kSuccess;
+    }
+
+    return rot;
+}
+
+MQuaternion MayaApiUtils::rotateFromMatrixAsQuaternion(const MMatrix &matrix, MStatus *status) {
+    MTransformationMatrix transMat(matrix);
+
+    MQuaternion quat = transMat.rotation();
+
+    if (status != nullptr) {
+        *status = MStatus::kSuccess;
+    }
+
+    return quat;
 }
